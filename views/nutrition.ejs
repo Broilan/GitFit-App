@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nutrition</title>
+        <link rel="stylesheet" href="/css/nutrition.css">
+  </head>
+<body>
+  <p class = "header">Nutrition Facts</p>
+
+<form method="POST" action="./nutrition">
+    <input type="text" name="ingredient" placeholder="food + weight">
+    <button class="btn btn-primary" type="submit">GET Nutriton Facts</button>
+  </form>
+
+  <div class="row">
+    <div class="well">
+      <% if(Array.isArray(nutritions) && nutritions.length > 0) { %>
+        <% nutritions.forEach((nutrition) => { %>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <%= nutrition.name %>
+            </div>
+            <div class="panel-body">
+                <p><%= nutrition.calories %> kcals </p>
+                <p> fat <%= nutrition.fats %>g </p>
+                <p> carbs <%= nutrition.carbs %>g </p>
+                <p> protein <%= nutrition.protein %>g </p>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>     
+        <div class="panel panel-default">
+          <div class="panel-body">
+                No nutrition facts found
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>   
+</body>
+</html>
+

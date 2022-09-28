@@ -1,0 +1,12 @@
+.header {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    font-size: 75px;
+}
+
+.row {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+}

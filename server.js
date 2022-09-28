@@ -6,6 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const db = require('./models');
 
 
 
@@ -43,6 +44,8 @@ app.get('/', (req, res) => {
 
 // access to all of our auth routes GET /auth/login, GET /auth/signup
 app.use('/auth', require('./controllers/auth'));
+app.use('/nutrition', require('./controllers/nutrition'));
+app.use('/anatomy', require('./controllers/anatomy'));
 
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
@@ -51,9 +54,13 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 
+
+
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
 });
+
+
 
 module.exports = server;
