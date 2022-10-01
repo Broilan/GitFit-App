@@ -4,9 +4,10 @@ const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 const axios = require('axios');
 const { response } = require('express');
-// const { DELETE } = require('sequelize/types/query-types');
 const apiKey = process.env.API_KEY;
 const appId = process.env.APP_ID;
+
+// let button = document.getElementById("button")
 
 
 router.get('/', isLoggedIn, (req, res) => {
@@ -55,9 +56,44 @@ router.post('/', isLoggedIn, (req, res) => {
     })
 });
 
-router.put('/', isLoggedIn, (req, res) => {
-    res.render(please)
-  })
+//nutrition delete route
+router.delete("/:id", isLoggedIn, async (req, res) => {
+    try {
+       let deleteNutrition = await db.nutrition.destroy({
+        where: { id: req.params.id}
+        })
+        res.redirect("/nutrition")
+    } catch (error) {
+          console.log('*********************ERROR***********************');
+          console.log(error);
+          console.log('**************************************************');
+            res.redirect("/nutrition")
+    }
+})
+
+
+
+// button.addEventListener(click, (e) => {router.get('/', isLoggedIn, (req, res) => {
+//     db.nutrition.findAll({
+//         where: {
+//             name: req.name
+//         }
+//     })
+//         .then(nutritions => {
+//             res.delete('nutrition', {
+//                 nutritions: nutritions,
+
+//             })
+//         })
+//         .catch(error => {
+//             console.log(error)
+//         })
+//     });
+    
+// })
+  
+
+
 
 
 

@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.user.hasMany(models.nutrition)
+      models.user.hasMany(models.comment)
     }
   };
   user.init({

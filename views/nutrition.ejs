@@ -9,24 +9,26 @@
 <body>
   <p class = "header">Nutrition Facts</p>
 
-<form method="POST" action="./nutrition">
+<form class = "form" method="POST" action="./nutrition">
     <input type="text" name="ingredient" placeholder="food + weight">
-    <button class="btn btn-primary" type="submit">GET Nutriton Facts</button>
+    <button class="btn" type="submit">GET Nutriton Facts</button>
   </form>
 
   <div class="row">
     <div class="well">
       <% if(Array.isArray(nutritions) && nutritions.length > 0) { %>
         <% nutritions.forEach((nutrition) => { %>
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <%= nutrition.name %>
-            </div>
+          <div class="panel">
             <div class="panel-body">
-                <p><%= nutrition.calories %> kcals </p>
-                <p> fat <%= nutrition.fats %>g </p>
-                <p> carbs <%= nutrition.carbs %>g </p>
-                <p> protein <%= nutrition.protein %>g </p>
+
+                <p class = "foodName"><strong> <%= nutrition.name %> </strong> </p>
+                <p class =  "macro"> kCals <%= nutrition.calories %>  </p>
+                <p class = "macro"> Fat <%= nutrition.fats %>g </p>
+                <p class = "macro"> Carbs <%= nutrition.carbs %>g </p>
+                <p class = "macro"> Protein <%= nutrition.protein %>g </p>
+                <form method="POST" action="/nutrition/<%= nutrition.id %>/?_method=DELETE">
+                  <button type="submit">Remove</button>
+                </form>
             </div>
           </div>
         <% }) %>
@@ -39,6 +41,7 @@
       <% } %>
     </div>
   </div>   
+
 </body>
 </html>
 

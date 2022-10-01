@@ -7,7 +7,7 @@ const flash = require('connect-flash');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const db = require('./models');
-
+const methodOverride = require('method-override')
 
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
@@ -16,6 +16,7 @@ console.log( "yooooo", SECRET_SESSION);
 app.set('view engine', 'ejs');
 
 app.use(require('morgan')('dev'));
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
@@ -46,6 +47,8 @@ app.get('/', (req, res) => {
 app.use('/auth', require('./controllers/auth'));
 app.use('/nutrition', require('./controllers/nutrition'));
 app.use('/anatomy', require('./controllers/anatomy'));
+// app.use('/comment', require('./controllers/comment'));
+
 
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
@@ -54,7 +57,9 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 
-
+app.get("*", (req, res) => {
+  res.render('404');
+})
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {

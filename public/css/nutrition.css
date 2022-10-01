@@ -9,4 +9,33 @@
     position: absolute;
     top: 15%;
     left: 50%;
+
+}
+
+.foodName {
+    border: 5px solid;
+  
+}
+
+.macro {
+    border: 5px solid;
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+
+
+.form {
+    position: absolute;
+    left: 100px;
+}
+
+.panel-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.row {
+    position: absolute;
+    left: 35%;
 }
