@@ -1,7 +1,7 @@
 .header {
     position: absolute;
-    top: 5%;
-    left: 50%;
+    top: 0%;
+    left: 32.5%;
     font-size: 75px;
 }
 
@@ -14,25 +14,56 @@
 
 .foodName {
     border: 5px solid;
+    margin-bottom: 0%;
   
 }
 
-.macro {
+.cals {
     border: 5px solid;
     font-size: 20px;
     padding-right: 15px;
+    margin-bottom: 0%;
+}
+
+.fat {
+    border: 5px solid;
+    font-size: 20px;
+    padding-right: 15px;
+    margin-bottom: 0%;
+}
+
+.carbs {
+    border: 5px solid;
+    font-size: 20px;
+    padding-right: 15px;
+    margin-bottom: 0%;
+
+}
+
+.protein {
+    border: 5px solid;
+    font-size: 20px;
+    padding-right: 15px;
+    margin-bottom: 0%;
+
+}
+
+.remove {
+    margin-bottom: 2%;
 }
 
 
 
 .form {
     position: absolute;
-    left: 100px;
+    left: 36%;
+    top: 10%;
+
 }
 
 .panel-body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .row {

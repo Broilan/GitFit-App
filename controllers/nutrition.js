@@ -27,7 +27,24 @@ router.get('/', isLoggedIn, (req, res) => {
         })
     });
 
+    router.get('/', isLoggedIn, (req, res) => {
+        db.comments.findAll({
+            where: {
+                userId: req.user.id
+            }
+        })
+            .then(comments => {
+                res.render('nutrition', {
+                    comments: comments,
+    
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        });
 
+//nutrition post route
 router.post('/', isLoggedIn, (req, res) => {
     axios.get(`https://api.edamam.com/api/nutrition-data?app_id=${appId}&app_key=${apiKey}&nutrition-type=logging&ingr=${req.body.ingredient}`)
     .then(response => {
@@ -56,6 +73,31 @@ router.post('/', isLoggedIn, (req, res) => {
     })
 });
 
+//comment on nutrition post route
+router.post('/:id/comment', (req, res) => {
+    const createdDate = new Date().toISOString();
+    db.comments.findOne({
+      where: { userId: req.user.id }
+    })
+    .then((comments) => {
+      if (!comments) throw Error()
+      db.comments.create({
+        id: req.params.id,
+        username: req.body.username,
+        comment: req.body.comment,
+        createdAt: createdDate,
+        updatedAt: createdDate
+      }).then(comment => {
+        res.redirect(`/nutrition/${req.params.id}`);
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+      res.status(400).render('main/404')
+    })
+  })
+
+
 //nutrition delete route
 router.delete("/:id", isLoggedIn, async (req, res) => {
     try {
@@ -72,25 +114,6 @@ router.delete("/:id", isLoggedIn, async (req, res) => {
 })
 
 
-
-// button.addEventListener(click, (e) => {router.get('/', isLoggedIn, (req, res) => {
-//     db.nutrition.findAll({
-//         where: {
-//             name: req.name
-//         }
-//     })
-//         .then(nutritions => {
-//             res.delete('nutrition', {
-//                 nutritions: nutritions,
-
-//             })
-//         })
-//         .catch(error => {
-//             console.log(error)
-//         })
-//     });
-    
-// })
   
 
 
