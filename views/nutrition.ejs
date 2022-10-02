@@ -29,6 +29,16 @@
                 <form method="POST" class = "remove" action="/nutrition/<%= nutrition.id %>/?_method=DELETE">
                   <button type="submit">Remove</button>
                 </form>
+
+                <form method="POST" class = "commentX" action="/nutrition/<%= nutrition.id %>/?_method=POST">
+                    <button type="submit">Comment</button>
+                </form>
+
+                  <form method="get" class = "commentX" action="/nutrition/<%= nutrition.id %>/?_method=POST">
+                      <button type="submit">Details</button> 
+                  </form>
+                  
+                
             </div>
           </div>
         <% }) %>
@@ -41,35 +51,7 @@
       <% } %>
     </div>
   </div>
-  
-  <!-- comments -->
-  <div class="rowX">
-    <div class="wellX">
-      <% if(Array.isArray(comments) && comments.length > 0) { %>
-        <% comments.forEach((comment) => { %>
-          <div class="panelX">
-            <div class="panel-bodyX">
 
-                <p class = "username"><strong> <%= comment.username %> </strong> </p>
-                <p class =  "comment"> kCals <%= comments.comment %>  </p>
-                <form method="POST" class = "removeX" action="/nutrition/<%= comments.id %>/?_method=DELETE">
-                  <button type="submit">Remove</button>
-                </form>
-                <form method="POST" class = "commentX" action="/nutrition/<%= comment.id %>/?_method=POST">
-                  <button type="submit">Comment</button>
-                </form>
-            </div>
-          </div>
-        <% }) %>
-      <% } else { %>     
-        <div class="panel panel-default">
-          <div class="panel-body">
-                No nutrition facts found
-          </div>
-        </div>
-      <% } %>
-    </div>
-  </div>   
 
 
 

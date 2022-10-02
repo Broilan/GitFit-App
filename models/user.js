@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.user.hasMany(models.nutrition)
-      models.user.hasMany(models.comment)
+      models.user.hasMany(models.comments)
     }
   };
   user.init({

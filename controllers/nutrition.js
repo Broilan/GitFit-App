@@ -74,28 +74,43 @@ router.post('/', isLoggedIn, (req, res) => {
 });
 
 //comment on nutrition post route
-router.post('/:id/comment', (req, res) => {
-    const createdDate = new Date().toISOString();
-    db.comments.findOne({
-      where: { userId: req.user.id }
-    })
-    .then((comments) => {
-      if (!comments) throw Error()
-      db.comments.create({
-        id: req.params.id,
-        username: req.body.username,
-        comment: req.body.comment,
-        createdAt: createdDate,
-        updatedAt: createdDate
-      }).then(comment => {
-        res.redirect(`/nutrition/${req.params.id}`);
-      })
-    })
-    .catch((error) => {
-      console.log(error)
-      res.status(400).render('main/404')
-    })
-  })
+// router.post('/:id/comment', (req, res) => {
+//     const createdDate = new Date().toISOString();
+//     db.comments.findOne({
+//       where: { userId: req.user.id }
+//     })
+//     .then((comments) => {
+//       if (!comments) throw Error()
+//       db.comments.create({
+//         id: req.params.id,
+//         username: req.body.username,
+//         comment: req.body.comment,
+//         createdAt: createdDate,
+//         updatedAt: createdDate
+//       }).then(comment => {
+//         res.redirect(`/nutrition/${req.params.id}`);
+//           })
+//     })
+//     .catch((error) => {
+//       console.log(error)
+//       res.status(400).render('main/404')
+//     })
+//   })
+
+
+// router.get("/:id", isLoggedIn, async (req, res) => {
+//     try {
+//        let findNutrition = await db.nutrition.name({
+//         where: { id: req.params.id}
+//         })
+//         res.redirect("/nutrition/:id")
+//     } catch (error) {
+//           console.log('*********************ERROR***********************');
+//           console.log(error);
+//           console.log('**************************************************');
+//             res.redirect("/nutrition")
+//     }
+// })
 
 
 //nutrition delete route

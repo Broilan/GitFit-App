@@ -47,7 +47,6 @@ app.get('/', (req, res) => {
 app.use('/auth', require('./controllers/auth'));
 app.use('/nutrition', require('./controllers/nutrition'));
 app.use('/anatomy', require('./controllers/anatomy'));
-app.use('/comments', require('./controllers/comments'));
 
 
 // Add this above /auth controllers
