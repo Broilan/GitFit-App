@@ -14,7 +14,8 @@ router.get('/', isLoggedIn, (req, res) => {
     db.nutrition.findAll({
         where: {
             userId: req.user.id
-        }
+        },
+        
     })
         .then(nutritions => {
             res.render('nutrition', {
@@ -27,22 +28,34 @@ router.get('/', isLoggedIn, (req, res) => {
         })
     });
 
-    router.get('/', isLoggedIn, (req, res) => {
-        db.comments.findAll({
+    router.get('/:id', isLoggedIn, (req, res) => {
+        db.nutrition.findOne({
             where: {
                 userId: req.user.id
+            },
+            include: [ {
+                model: db.comments,
+                include: [
+                    db.user
+                ]
+
             }
+        ]
+        
         })
-            .then(comments => {
-                res.render('nutrition', {
-                    comments: comments,
+        
+            .then(nutrition => {
+                res.render('details', {
+                    nutrition: nutrition,
     
                 })
             })
             .catch(error => {
                 console.log(error)
+                res.redirect("404")
             })
         });
+
 
 //nutrition post route
 router.post('/', isLoggedIn, (req, res) => {
@@ -73,53 +86,68 @@ router.post('/', isLoggedIn, (req, res) => {
     })
 });
 
-//comment on nutrition post route
-// router.post('/:id/comment', (req, res) => {
-//     const createdDate = new Date().toISOString();
-//     db.comments.findOne({
-//       where: { userId: req.user.id }
-//     })
-//     .then((comments) => {
-//       if (!comments) throw Error()
-//       db.comments.create({
-//         id: req.params.id,
-//         username: req.body.username,
-//         comment: req.body.comment,
-//         createdAt: createdDate,
-//         updatedAt: createdDate
-//       }).then(comment => {
-//         res.redirect(`/nutrition/${req.params.id}`);
-//           })
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//       res.status(400).render('main/404')
-//     })
-//   })
+// comment on nutrition post route
+router.post('/:id/comment', isLoggedIn, (req, res) => {
+    const createdDate = new Date().toISOString();
+    db.comments.create({
+        nutritionId: parseInt(req.params.id),
+        userId: req.user.id,
+        comment: req.body.comment,
+        createdAt: createdDate,
+        updatedAt: createdDate
+    })
+    .then((comment) => {
+      if (!comment) throw Error()
+      res.redirect(`/nutrition/${req.params.id}`)
+    })
+    
+    
+    .catch((error) => {
+      console.log(error)
+      res.status(400).render('main/404')
+    })
+  })
 
 
-// router.get("/:id", isLoggedIn, async (req, res) => {
-//     try {
-//        let findNutrition = await db.nutrition.name({
-//         where: { id: req.params.id}
-//         })
-//         res.redirect("/nutrition/:id")
-//     } catch (error) {
-//           console.log('*********************ERROR***********************');
-//           console.log(error);
-//           console.log('**************************************************');
-//             res.redirect("/nutrition")
-//     }
-// })
+router.get("/:id", isLoggedIn, async (req, res) => {
+    try {
+       let findNutrition = await db.nutrition.name({
+        where: { id: req.params.id}
+        })
+        res.redirect("/nutrition/:id")
+    } catch (error) {
+          console.log('*********************ERROR***********************');
+          console.log(error);
+          console.log('**************************************************');
+            res.redirect("/nutrition")
+    }
+})
 
 
 //nutrition delete route
 router.delete("/:id", isLoggedIn, async (req, res) => {
     try {
        let deleteNutrition = await db.nutrition.destroy({
-        where: { id: req.params.id}
+        where: { id: parseInt(req.params.id)}
         })
         res.redirect("/nutrition")
+    } catch (error) {
+          console.log('*********************ERROR***********************');
+          console.log(error);
+          console.log('**************************************************');
+            res.redirect("/nutrition")
+    }
+})
+
+
+
+//delete comments
+router.delete("/:id/comment/:commentid", isLoggedIn, async (req, res) => {
+    try {
+       let deleteComment = await db.comments.destroy({
+        where: { id: parseInt(req.params.commentid)}
+        })
+        res.redirect(`/nutrition/${req.params.id}`)
     } catch (error) {
           console.log('*********************ERROR***********************');
           console.log(error);

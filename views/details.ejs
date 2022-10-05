@@ -1,1 +1,56 @@
- <p>nutrition</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nutrition</title>
+        <link rel="stylesheet" href="/css/nutrition.css">
+  </head>
+<body>
+  <p class = "header">Nutrition Facts</p>
+
+    <p class = "foodName"><strong> <%= nutrition.name %> </strong> </p>
+                    <p class =  "cals"> kCals <%= nutrition.calories %>  </p>
+                    <p class = "fat"> Fat <%= nutrition.fats %>g </p>
+                    <p class = "carbs"> Carbs <%= nutrition.carbs %>g </p>
+                    <p class = "protein"> Protein <%= nutrition.protein %>g </p>
+
+<form class = "form" method="POST" action="/nutrition/<%= nutrition.id %>/comment ">
+    <input type="text" name="comment" placeholder="comment">
+    <button class="btn" type="submit">GET comment</button>
+  </form>
+
+  <div class="row">
+    <div class="well">
+      <% if(nutrition && Array.isArray(nutrition.comments) && nutrition.comments.length> 0) { %>
+        <% nutrition.comments.forEach((comment) => { %>
+          <div class="panel">
+            <div class="panel-body">
+
+                <p class = "foodName"><strong> <%= comment.user.name %> </strong> </p>
+                <p class =  "cals"> Your comment: <%= comment.comment %>  </p>
+
+
+                <form method="POST" class = "remove" action="/nutrition/<%= nutrition.id %>/comment/<%= comment.id %>?_method=DELETE">
+                  <button type="submit">Remove</button>
+                </form>
+                  
+                
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>     
+        <div class="panel panel-default">
+          <div class="panel-body">
+                No comments found
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+
+
+
+</body>
+</html>
