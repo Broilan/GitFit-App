@@ -16,3 +16,5 @@
    -Within the workout section, you have access to a database comprised of all exercises and training methods known to man, as well as research to support the efficacy, and appropriate time to use each. This includes but is not limited to yoga, calisthenics, weight-resistance training, cardio, and high intensity interval training. Also, you're able to store every single one of your workouts. Just click the '+' in the top right corner to add a new workout. In order to access your previous workouts, click the lines in the top left, and then click 'my workouts'.
 
    User story: As a bodybuilder, I want to be able to keep track of meals and my workouts in a quick an easy fashion, as pen and paper, or even storing it on my notes app has become tedious and convoluted.
+
+xyz
