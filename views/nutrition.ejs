@@ -30,14 +30,17 @@
                   <button type="submit">Remove</button>
                 </form>
 
-                <form method="POST" class = "commentX" action="/nutrition/<%= nutrition.id %>/?_method=POST">
-                    <button type="submit">Comment</button>
-                </form>
+                <form method="get" class = "commentX" action="/nutrition/<%= nutrition.id %>">
+                  <button type="submit">comment</button> 
+              </form>
 
-                  <form method="get" class = "commentX" action="/details/nutrition/:id">
-                      <button type="submit">Details</button> 
-                  </form>
-                  
+              <form action="/nutrition/?_method=PUT" method="POST">
+                <label for="check1">Enjoyed?</label>
+                <input id="check1" type="checkbox" name="check1">
+                <button type="submit">submit checkbox</button>
+            </form>
+
+
                 
             </div>
           </div>

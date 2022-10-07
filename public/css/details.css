@@ -1,0 +1,41 @@
+body {
+    overflow: hidden;
+}
+
+.foodName {
+    border: 5px solid;
+    margin-bottom: 0%;
+  
+}
+
+.cals {
+    border: 5px solid;
+    font-size: 20px;
+    margin-bottom: 0%;
+}
+
+.fat {
+    border: 5px solid;
+    font-size: 20px;
+    margin-bottom: 0%;
+}
+
+.carbs {
+    border: 5px solid;
+    font-size: 20px;
+    margin-bottom: 0%;
+
+}
+
+.protein {
+    border: 5px solid;
+    font-size: 20px;
+    margin-bottom: 0%;
+
+}
+
+
+
+
+
+

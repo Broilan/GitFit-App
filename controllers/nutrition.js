@@ -4,10 +4,11 @@ const db = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 const axios = require('axios');
 const { response } = require('express');
+const methodOverride = require('method-override')
 const apiKey = process.env.API_KEY;
 const appId = process.env.APP_ID;
 
-// let button = document.getElementById("button")
+router.use(methodOverride("_method"));
 
 
 router.get('/', isLoggedIn, (req, res) => {
@@ -27,6 +28,7 @@ router.get('/', isLoggedIn, (req, res) => {
             console.log(error)
         })
     });
+
 
     router.get('/:id', isLoggedIn, (req, res) => {
         db.nutrition.findOne({
@@ -154,6 +156,15 @@ router.delete("/:id/comment/:commentid", isLoggedIn, async (req, res) => {
           console.log('**************************************************');
             res.redirect("/nutrition")
     }
+})
+
+//put route to check if food is enjoyable
+router.put('/', (req, res) => {
+    const checkboxBodyKey = Object.keys(req.body)[0];
+    console.log(`PUT checkbox submit test request produced:`);
+    console.log(`${checkboxBodyKey}: ${req.body[checkboxBodyKey]}`);
+    checkbox1 = req.body['check1'] ? true: false;
+    res.redirect('/nutrition');
 })
 
 
