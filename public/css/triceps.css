@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
+
+body {
+  background: #f2f2f2;
+}
+
+.row {
+    position: relative;
+    left: 150px;
+}
+
+
+
+.container  {
+  position: absolute;
+  height: 50vh;
+  width: 400px;
+  background: #f2f2f2;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+}
+
+.container2  {
+    position: absolute;
+    left: 150%;
+    height: 50vh;
+    width: 400px;
+    background: #f2f2f2;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+  }
+
+  .container3  {
+    position: absolute;
+    height: 50vh;
+    width: 400px;
+    left: 300%;
+    background: #f2f2f2;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+  }
+
+.content {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  text-align: justify;
+  color: black;
+  padding: 40px;
+  font-family: 'Merriweather', serif;
+}
+
+.content2 {
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    text-align: justify;
+    color: black;
+    padding: 40px;
+    font-family: 'Merriweather', serif;
+  }
+
+  .content3 {
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    text-align: justify;
+    color: black;
+    padding: 40px;
+    font-family: 'Merriweather', serif;
+  }
+
+
+
+h1 {
+  font-weight: 900;
+  text-align: center;
+}
+
+h3 {
+  font-weight: 300;
+}
+
+
+

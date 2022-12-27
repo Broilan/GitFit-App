@@ -7,43 +7,51 @@
         <link rel="stylesheet" href="/css/nutrition.css">
   </head>
 <body>
-  <p class = "header">Nutrition Facts</p>
+  <div class = "container" >
+    <div class="mb-3">
 
 <form class = "form" method="POST" action="./nutrition">
-    <input type="text" name="ingredient" placeholder="food + weight">
-    <button class="btn" type="submit">GET Nutriton Facts</button>
-  </form>
-
-  <div class="row">
-    <div class="well">
+    <input type="text" type="text"  class="form-control" id="exampleFormControlInput1" name="ingredient" placeholder="food + weight">
+    <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">Submit</button>
+ 
+    <div class = "container2" >
       <% if(Array.isArray(nutritions) && nutritions.length > 0) { %>
         <% nutritions.forEach((nutrition) => { %>
-          <div class="panel">
-            <div class="panel-body">
 
-                <p class = "foodName"><strong> <%= nutrition.name %> </strong> </p>
-                <p class =  "cals"> kCals <%= nutrition.calories %>  </p>
-                <p class = "fat"> Fat <%= nutrition.fats %>g </p>
-                <p class = "carbs"> Carbs <%= nutrition.carbs %>g </p>
-                <p class = "protein"> Protein <%= nutrition.protein %>g </p>
-                <form method="POST" class = "remove" action="/nutrition/<%= nutrition.id %>/?_method=DELETE">
-                  <button type="submit">Remove</button>
-                </form>
+              <table class="table table-dark table-striped">
+                <tr>
+                    <th>Food</th>
+                    <th>Calories</th>
+                    <th>Fats</th>
+                    <th>Carbs</th>
+                    <th>Protein</th>
+                    <th>Delete</th>
+                </tr>
+                <tr> 
+                    <td class = "foodName"><strong> <%= nutrition.name %> </strong>  </td>
+                    <td class =  "cals"> kCals <%= nutrition.calories %>  </td>
+                    <td class = "fat"> Fat <%= nutrition.fats %>g</td> 
+                    <td class = "carbs"> Carbs <%= nutrition.carbs %>g  </td>
+                    <td class = "carbs"> Protein <%= nutrition.protein %>g  </td>
+                    <td><form method="POST" class = "remove" action="/nutrition/<%= nutrition.id %>/?_method=DELETE">
+                        <button type="submit" class="btn btn-dark" style="border:1px solid white">Remove</button>
+                      </form></td>    
+                </tr>
+            </table>
 
                 <form method="get" class = "commentX" action="/nutrition/<%= nutrition.id %>">
-                  <button type="submit">comment</button> 
+                  <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">Comment</button>
               </form>
 
               <form action="/nutrition/?_method=PUT" method="POST">
                 <label for="check1">Enjoyed?</label>
                 <input id="check1" type="checkbox" name="check1">
-                <button type="submit">submit checkbox</button>
+                <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">Check</button>
             </form>
 
 
-                
-            </div>
-          </div>
+              
+
         <% }) %>
       <% } else { %>     
         <div class="panel panel-default">
@@ -51,13 +59,10 @@
                 No nutrition facts found
           </div>
         </div>
+       
       <% } %>
-    </div>
-  </div>
-
-
-
-
+</form>
+</div>
+</div>
 </body>
 </html>
-

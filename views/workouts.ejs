@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/createworkouts.css">
+    <title>GitFit</title>
+</head>
+<body>
+    <div class = "container" >
+        <div class="mb-3">
+      
+            <form action="/workout/workouts" method="POST">
+            <label>Exercise</label>
+            <input type="text" name="exercise" class="form-control" id="exampleFormControlInput1"  placeholder="ex: 'tricep extensions'"> <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">Submit</button>
+    
+             
+
+    <div class = "container2" >
+              <% if(Array.isArray(workoutsZ) && workoutsZ.length > 0) { %>
+                <% workoutsZ.forEach((workout) => { %>
+                    <table class="table table-dark table-striped">
+                        <tr>
+                            <th>Exercise</th>
+                            <th>BodyPart</th>
+                            <th>Gif</th>
+                            <th>Target</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr> 
+                            <td class = "workoutName"><strong> <%= workout.name %> </strong> </td>
+                            <td class =  "workoutBodyPart"> <%= workout.bodyPart %>  </td>
+                            <td><form method="GET" class = "workoutGIF" action="<%= workout.gifURL %>">
+                                <button type="submit" class="btn btn-dark" style="border:1px solid white">See How</button>
+                            </form></td> 
+                            <td class = "workoutTarget"><%= workout.target %> </td>
+                            <td><form method="POST" class = "remove" action="/workout/workouts/<%= workout.id %>/?_method=DELETE">
+                                <button type="submit" class="btn btn-dark" style="border:1px solid white">Remove</button>
+                              </form></td>    
+                        </tr>
+                    </table>
+                <% }) %>
+              <% } else { %>     
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                        No workouts found
+                  </div>
+                </div>
+              <% } %>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

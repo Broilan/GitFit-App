@@ -32,6 +32,7 @@
     "@types/sequelize": "^4.28.14",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.2.3",
     "connect-flash": "^0.1.1",
     "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
@@ -48,5 +49,3 @@
     "sequelize-cli": "^6.5.1"
   }
 }
-
-

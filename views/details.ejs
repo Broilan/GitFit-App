@@ -8,17 +8,27 @@
   </head>
 <body>
 
-    <p class = "foodName"><strong> <%= nutrition.name %> </strong> </p>
-                    <p class =  "cals"> kCals <%= nutrition.calories %>  </p>
-                    <p class = "fat"> Fat <%= nutrition.fats %>g </p>
-                    <p class = "carbs"> Carbs <%= nutrition.carbs %>g </p>
-                    <p class = "protein"> Protein <%= nutrition.protein %>g </p>
+  <table class="table table-dark table-striped">
+    <tr>
+        <th>Food</th>
+        <th>Calories</th>
+        <th>Fats</th>
+        <th>Carbs</th>
+        <th>Protein</th>
+    </tr>
+    <tr> 
+        <td class = "foodName"><strong> <%= nutrition.name %> </strong>  </td>
+        <td class =  "cals"> kCals <%= nutrition.calories %>  </td>
+        <td class = "fat"> Fat <%= nutrition.fats %>g</td> 
+        <td class = "carbs"> Carbs <%= nutrition.carbs %>g  </td>
+        <td class = "carbs"> Protein <%= nutrition.protein %>g  </td>  
+    </tr>
+</table>
 
 <form class = "form" method="POST" action="/nutrition/<%= nutrition.id %>/comment ">
-    <input type="text" name="comment" placeholder="comment">
-    <button class="btn" type="submit">GET comment</button>
+  <input type="text" name="comment" class="form-control" id="exampleFormControlInput1" style="width:50vh; height:200px">
+  <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">post</button>
   </form>
-
   <div class="row">
     <div class="well">
       <% if(nutrition && Array.isArray(nutrition.comments) && nutrition.comments.length> 0) { %>
