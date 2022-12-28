@@ -1,7 +1,7 @@
 {
-  "name": "express_authentication",
+  "name": "gitfit",
   "version": "1.0.0",
-  "description": "Express authentication template using Passport + Flash messages + custom middleware",
+  "description": "fitness appp",
   "main": "server.js",
   "directories": {
     "test": "test"
@@ -11,17 +11,6 @@
     "start": "node server.js",
     "nodemon": "nodemon"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SEIRFX-621/express_authentication.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SEIRFX-621/express_authentication/issues"
-  },
-  "homepage": "https://github.com/SEIRFX-621/express_authentication#readme",
   "devDependencies": {
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
