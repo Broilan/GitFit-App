@@ -3,21 +3,26 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
+    background: #f2f2f2;
 }
 
 .createworkouts {
-    width: 500px;
-    height: 800px;
+    height: 75vh;
+    width: 25vw;
     padding: 5px;
     border: 5px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 15px black;
     margin: 15px;
 }
 
 .learnabout {
-    width: 500px;
-    height: 800px;
+    height: 75vh;
+    width: 25vw;
     padding: 5px;
     border: 5px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 15px black;
     margin: 15px;
 }
 
@@ -27,5 +32,4 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    top: 10vh;
 }

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Oswald', sans-serif;
+    overflow: hidden;
+
+}
+
+.sidebar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 0%;
+    width: 10vw;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    border-right: 1px solid black ;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar h4 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.other>:nth-child(1) {
+    margin-top: 2rem;
+}
+
+.tools>:nth-child(1) {
+    margin-top: 2rem;
+}
+
+
+.profile-info-container {
+    display: flex;
+    gap: 5rem;
+    justify-content: flex-end;
+}
+
+.profile-info-container> *:not(.sug-arc-container) {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 20px black;
+    height: 50vh;
+    width: 18vw;
+    margin-top: 1rem;
+}
+
+.sug-arc-container {
+    display: flex;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.archives-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 20px black;
+    height: 25vh;
+    width: 15vw;
+}
+
+.suggestions-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0 0 20px black;
+    height: 25vh;
+    width: 15vw;
+}
+
+.cont-title{
+    border-bottom: 1px solid black;
+}
+
+.nutrition-container{
+    height: 50vh;
+}
+
+.anatomy-container{
+    height: 50vh;
+}
+.workouts-container{
+    height: 50vh;
+}
+
+.nutrition-wrapper {
+    display: flex;
+    flex-direction: column;
+} 
+
+.anatomy-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.workouts-wrapper {
+    display: flex;
+    flex-direction: column;
+}
