@@ -50,14 +50,33 @@ app.use('/anatomy', require('./controllers/anatomy'));
 app.use('/workout', require('./controllers/workout'));
 // app.use('/details', require('./controllers/details'));
 
-
-
-
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
   const { id, name, email } = req.user.get(); 
-  res.render('profile', { id, name, email });
-});
+  db.workouts.findAll({
+    where: {
+        userId: "1"
+    },
+    
+  })
+  .then(workouts=> {
+    db.nutrition.findAll({
+      where: {
+          userId: "1"
+      },
+      
+    })
+  
+  .then(nutritions => {
+    console.log(nutritions, workouts)
+  res.render('profile', { id, name, email, workouts, nutritions });
+})
+})
+.catch(error => {
+  console.log(error)
+})
+ })
+
 
 
 app.get("*", (req, res) => {

@@ -9,10 +9,9 @@
 </head>
 <body>
     <!-- <div class="user-info">
-   <p>Id: <%= id %></p>
-<p>Name: <%= name %></p>
-<p>Email: <%= email %></p> 
-</div> -->
+<!-- <p>Name: <%= name %></p>
+<p>Email: <%= email %></p>  -->
+<!-- </div>  -->
 <div class="sidebar">
 
 <div class="basic">
@@ -166,10 +165,14 @@
 
     <div class="workouts-wrapper">
     <h1 class="cont-title">My Workouts</h1>
-    <div>
-        <h5>content title</h5>
-        <p>content</p>
-    </div>
+    <% workouts.map((w) => {%>
+		<div class="list-item-container">
+			<h5><%= w.name %></h5>
+			<td><form method="GET" class = "workoutGIF" action="<%= w.gifURL %>">
+				<button type="submit" class="btn btn-dark" style="border:1px solid white">See How</button>
+			</form></td> 
+		</div>
+		<%  })%> 
 </div>
 
 </div>
@@ -178,30 +181,24 @@
 
     <div class="nutrition-wrapper">
     <h1 class="cont-title">My Nutrition</h1>
-    <h5>content title</h5>
-        <p>content</p>
-    </div>
-
-</div>
-
-<div class="anatomy-container">
-
-    <div class="anatomy-wrapper">
-    <h1 class="cont-title">My Anatomy</h1>
-    <h5>content title</h5>
-        <p>content</p>
+	
+	<% nutritions.map((n) => {%>
+		<div class="list-item-container">
+		<h5><%= n.name %></h5>
+	</div>
+	<%  })%>
     </div>
 
 </div>
 
 <div class="sug-arc-container">
 <div class="suggestions-container">
-    <h1 class="cont-title">Suggestions</h1>
+    <h1 class="sug-cont-title">Suggestions</h1>
     <h5>content title</h5>
         <p>content</p>
 </div>
 <div class="archives-container">
-    <h1 class="cont-title">Archives</h1>
+    <h1 class="other-cont-title">Archives</h1>
     <h5>content title</h5>
         <p>content</p>
 </div>

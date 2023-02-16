@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/createworkouts.css">
+    <link rel="stylesheet" href="/css/nutrition.css">
     <title>GitFit</title>
 </head>
 <body>
     <div class = "container" >
-        <div class="mb-3">
-      
+
+      <div class="create-nutrition">
             <form action="/workout/workouts" method="POST">
             <label>Exercise</label>
-            <input type="text" name="exercise" class="form-control" id="exampleFormControlInput1"  placeholder="ex: 'tricep extensions'"> <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">Submit</button>
-    
+            <input type="text" name="exercise" class="form-control" id="exampleFormControlInput1"  placeholder="ex: 'tricep extensions'"> <button type="submit"   class="submit-btn">Submit</button>
+          </div>
              
 
     <div class = "container2" >
@@ -24,21 +24,24 @@
                         <tr>
                             <th>Exercise</th>
                             <th>BodyPart</th>
-                            <th>Gif</th>
                             <th>Target</th>
+                            <th>Gif</th>
                             <th>Delete</th>
                         </tr>
-                        <tr> 
-                          x
-                            <td class = "workoutName"><strong> <%= workout.name %> </strong> </td>
-                            <td class =  "workoutBodyPart"> <%= workout.bodyPart %>  </td>
+                        <tr>
+                            <td class = "foodName"><strong> <%= workout.name %> </strong> </td>
+                            <td class =  "cals"> <%= workout.bodyPart %>  </td>
+                            
+                            <td class = "fat"><%= workout.target %> </td>
+                            
                             <td><form method="GET" class = "workoutGIF" action="<%= workout.gifURL %>">
                                 <button type="submit" class="btn btn-dark" style="border:1px solid white">See How</button>
                             </form></td> 
-                            <td class = "workoutTarget"><%= workout.target %> </td>
+
                             <td><form method="POST" class = "remove" action="/workout/workouts/<%= workout.id %>/?_method=DELETE">
                                 <button type="submit" class="btn btn-dark" style="border:1px solid white">Remove</button>
-                              </form></td>    
+                              </form></td>   
+                               
                         </tr>
                     </table>
                 <% }) %>
@@ -50,7 +53,6 @@
                 </div>
               <% } %>
       </form>
-    </div>
   </div>
 </body>
 </html>

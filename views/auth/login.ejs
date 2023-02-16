@@ -1,10 +1,26 @@
-<form action="/auth/login" method="POST">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+  <div class="container">
+  <form action="/auth/login"  class="form" method="POST">
+
     <label for="auth-email">Email</label>
-    <input id="auth-email" type="email" name="email" required>
+    <input id="auth-email" class="input" type="email" name="email" required>
   
     <label for="auth-password">Password</label>
-    <input id="auth-password" type="password" name="password" required>
+    <input id="auth-password" class="input" type="password" name="password" required>
   
-    <input type="submit" value="Log In">
+    <input type="submit" class="submit-btn" value="Log In">
   </form>
+</body>
+</div>
+</html>
+
   

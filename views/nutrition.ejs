@@ -8,17 +8,18 @@
   </head>
 <body>
   <div class = "container" >
-    <div class="mb-3">
 
+  <div class="create-nutrition">
 <form class = "form" method="POST" action="./nutrition">
     <input type="text" type="text"  class="form-control" id="exampleFormControlInput1" name="ingredient" placeholder="food + weight">
-    <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">Submit</button>
- 
+    <button type="submit"   class="submit-btn">Submit</button>
+ </div>
+
     <div class = "container2" >
       <% if(Array.isArray(nutritions) && nutritions.length > 0) { %>
         <% nutritions.forEach((nutrition) => { %>
 
-              <table class="table table-dark table-striped">
+              <table class="nutrition-table">
                 <tr>
                     <th>Food</th>
                     <th>Calories</th>
@@ -26,6 +27,7 @@
                     <th>Carbs</th>
                     <th>Protein</th>
                     <th>Delete</th>
+                    <th>comment</th>
                 </tr>
                 <tr> 
                     <td class = "foodName"><strong> <%= nutrition.name %> </strong>  </td>
@@ -35,19 +37,18 @@
                     <td class = "carbs"> Protein <%= nutrition.protein %>g  </td>
                     <td><form method="POST" class = "remove" action="/nutrition/<%= nutrition.id %>/?_method=DELETE">
                         <button type="submit" class="btn btn-dark" style="border:1px solid white">Remove</button>
-                      </form></td>    
+                      </form></td>
+                      <td><form method="get" class = "commentX" action="/nutrition/<%= nutrition.id %>">
+                        <button type="submit"   style="border:1px solid white; margin-left: 5px" class="btn btn-dark">Comment</button>
+                    </form></td>    
                 </tr>
             </table>
 
-                <form method="get" class = "commentX" action="/nutrition/<%= nutrition.id %>">
-                  <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">Comment</button>
-              </form>
-
-              <form action="/nutrition/?_method=PUT" method="POST">
+              <!-- <form action="/nutrition/?_method=PUT" method="POST">
                 <label for="check1">Enjoyed?</label>
                 <input id="check1" type="checkbox" name="check1">
                 <button style="width: 430px; padding:10px; margin:10px" type="submit"   class="btn btn-dark">Check</button>
-            </form>
+            </form> -->
 
 
               

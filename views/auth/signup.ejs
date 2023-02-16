@@ -1,13 +1,27 @@
-<form action="/auth/signup" method="POST">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/auth.css">
+
+</head>
+<body>
+    <div class="container">
+  <form action="/auth/signup" class="form" method="POST">
     <label for="new-email">Email</label>
-    <input id="new-email" type="email" name="email" required>
+    <input id="new-email" class="input" type="email" name="email" required>
   
     <label for="new-name">Name</label>
-    <input id="new-name" type="text" name="name" required>
+    <input id="new-name"  class="input"  type="text" name="name" required>
   
     <label for="new-password">Password</label>
-    <input id="new-password" type="password" name="password" required>
+    <input id="new-password"  class="input"  type="password" name="password" required>
   
-    <input type="submit" value="Sign up">
+    <input type="submit" class="submit-btn" value="Sign up">
 </form>
-  
+    </div>
+</body>
+</html>
+

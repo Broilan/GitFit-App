@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
 .container {
     position: absolute;
     top: 15%;
     left: 10%;
     width: 50vh;
+    font-family: 'Oswald', sans-serif;
+
 }

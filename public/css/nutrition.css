@@ -1,6 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+body {
+    font-family: 'Oswald', sans-serif;
+
+}
+
+
 .container {
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    width: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vh;
+}
+
+.create-nutrition {
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 12px;
+    width: 20vw;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.submit-btn {
+    background-color: hsl(0, 0%, 12%);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 0.8rem;
+    margin-left: 80%;
+}
+
+.nutrition-table {
+    color: white;
+    padding: 20px;
+    background-color: hsl(0, 0%, 12%);
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+
+}
+
+.container2 {
+    display: flex;
+    padding: 20px;
+
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid black;
+    width: fit-content;
+    border-radius: 10px;
+    box-shadow: 0 0 12px black;
 }

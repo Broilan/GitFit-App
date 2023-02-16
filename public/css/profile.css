@@ -52,8 +52,18 @@ a {
     border-radius: 20px;
     box-shadow: 0 0 20px black;
     height: 50vh;
-    width: 18vw;
+    width: 30vw;
     margin-top: 1rem;
+}
+
+.list-item-container {
+    width: 100%;
+    transition: 500ms;
+
+}
+.list-item-container:hover {
+    background-color: rgb(122, 168, 209);
+
 }
 
 .sug-arc-container {
