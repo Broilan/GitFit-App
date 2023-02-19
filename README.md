@@ -1,5 +1,12 @@
-GitFit is an app designed for anyone looking to get in shape. It's my second coding project, so it's a little rough but I'm proud of it.
-
+TECHNOLOGIES
+------------------
+ - Javascript
+ - PostgreSQL
+ - Express
+ - Node
+ - EJS
+ - CSS
+ 
 HOMEPAGE
 -----------------------
 ![front](https://user-images.githubusercontent.com/107972255/219319219-7b228fad-17ad-4043-add0-997eb8372579.JPG)
